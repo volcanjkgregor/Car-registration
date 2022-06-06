@@ -1,0 +1,430 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.input.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fri.uv.vajenzanaltri.HelloController">
+   <top>
+      <MenuBar BorderPane.alignment="CENTER">
+        <menus>
+          <Menu mnemonicParsing="false" text="Datoteka">
+            <items>
+              <MenuItem onAction="#CBshrani" text="_Shrani">
+                     <accelerator>
+                        <KeyCodeCombination alt="UP" code="S" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                     </accelerator>
+                  </MenuItem>
+                  <MenuItem onAction="#CBizhod" text="_Izhod">
+                     <accelerator>
+                        <KeyCodeCombination alt="UP" code="Q" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                     </accelerator>
+                  </MenuItem>
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Uredi">
+            <items>
+              <MenuItem onAction="#CBpobrisiVse" text="_Pobrisi">
+                     <accelerator>
+                        <KeyCodeCombination alt="UP" code="X" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                     </accelerator>
+                  </MenuItem>
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem onAction="#CBabout" text="_About">
+                     <accelerator>
+                        <KeyCodeCombination alt="UP" code="A" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                     </accelerator>
+                  </MenuItem>
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+   </top>
+   <center>
+      <GridPane BorderPane.alignment="CENTER">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" />
+            <ColumnConstraints hgrow="SOMETIMES" />
+            <ColumnConstraints hgrow="SOMETIMES" />
+            <ColumnConstraints hgrow="SOMETIMES" />
+          <ColumnConstraints hgrow="SOMETIMES" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints vgrow="SOMETIMES" />
+          <RowConstraints vgrow="SOMETIMES" />
+            <RowConstraints vgrow="SOMETIMES" />
+            <RowConstraints vgrow="SOMETIMES" />
+            <RowConstraints vgrow="SOMETIMES" />
+          <RowConstraints vgrow="SOMETIMES" />
+            <RowConstraints vgrow="SOMETIMES" />
+            <RowConstraints vgrow="SOMETIMES" />
+            <RowConstraints vgrow="SOMETIMES" />
+            <RowConstraints vgrow="SOMETIMES" />
+            <RowConstraints vgrow="SOMETIMES" />
+            <RowConstraints vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <HBox GridPane.columnSpan="2147483647" GridPane.rowIndex="7">
+               <children>
+                  <Label fx:id="status" text="Status:">
+                     <HBox.margin>
+                        <Insets top="10.0" />
+                     </HBox.margin>
+                  </Label>
+               </children>
+               <GridPane.margin>
+                  <Insets bottom="5.0" />
+               </GridPane.margin>
+               <padding>
+                  <Insets left="5.0" />
+               </padding>
+            </HBox>
+            <VBox alignment="TOP_CENTER" spacing="20.0" GridPane.columnSpan="2" GridPane.rowIndex="6">
+               <children>
+                  <HBox alignment="TOP_CENTER" spacing="100.0">
+                     <children>
+                        <VBox alignment="TOP_CENTER" spacing="10.0">
+                           <children>
+                              <Label text="Osnovno zavarovanje:">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font></Label>
+                              <HBox alignment="TOP_CENTER" spacing="10.0">
+                                 <children>
+                                    <RadioButton mnemonicParsing="false" text="A0" textFill="#1225ec">
+                                       <toggleGroup>
+                                          <ToggleGroup fx:id="osnovnoZav" />
+                                       </toggleGroup></RadioButton>
+                                    <RadioButton mnemonicParsing="false" text="A0+" textFill="#1225ec" toggleGroup="$osnovnoZav" />
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                        <VBox alignment="TOP_CENTER" spacing="10.0">
+                           <children>
+                              <Label text="Kasko zavarovanje:">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font></Label>
+                              <HBox alignment="TOP_CENTER" spacing="10.0">
+                                 <children>
+                                    <RadioButton mnemonicParsing="false" text="Polno" textFill="#1225ec">
+                                       <toggleGroup>
+                                          <ToggleGroup fx:id="kaskoZav" />
+                                       </toggleGroup></RadioButton>
+                                    <RadioButton mnemonicParsing="false" text="Odbita franšiza" textFill="#1225ec" toggleGroup="$kaskoZav" />
+                                    <RadioButton mnemonicParsing="false" text="Brez" textFill="#1225ec" toggleGroup="$kaskoZav" />
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                     </children>
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <Label text="Dodatno zavarovanje:">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font></Label>
+                  <HBox alignment="TOP_CENTER" spacing="10.0">
+                     <children>
+                        <CheckBox fx:id="zavStekel" mnemonicParsing="false" text="Zavarovanje stekel" textFill="#1225ec" />
+                        <CheckBox fx:id="zavPark" mnemonicParsing="false" text="Zavarovanje na parkirišču" textFill="#1225ec" />
+                        <CheckBox fx:id="zavPotnik" mnemonicParsing="false" text="Zavarovanje potnikov" textFill="#1225ec" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="TOP_CENTER" layoutX="10.0" layoutY="124.0" spacing="10.0">
+                     <children>
+                        <CheckBox fx:id="zavTretjaOs" mnemonicParsing="false" text="Zavarovanje tretje osebe" textFill="#1225ec" />
+                        <CheckBox fx:id="zavGume" mnemonicParsing="false" text="Zavarovanje gum" textFill="#1225ec" />
+                        <CheckBox fx:id="zavKraja" mnemonicParsing="false" text="Zavarovanje proti kraji" textFill="#1225ec" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="TOP_CENTER" layoutX="10.0" layoutY="244.0" spacing="10.0">
+                     <children>
+                        <CheckBox fx:id="zavToca" mnemonicParsing="false" text="Zavarovanje proti toči" textFill="#1225ec" />
+                     </children>
+                     <padding>
+                        <Insets bottom="10.0" />
+                     </padding>
+                  </HBox>
+               </children>
+               <padding>
+                  <Insets left="20.0" right="20.0" />
+               </padding>
+            </VBox>
+            <HBox alignment="CENTER" GridPane.columnSpan="2">
+               <children>
+                  <Label text="Podatki o vozilu">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Label>
+               </children>
+               <GridPane.margin>
+                  <Insets bottom="10.0" top="10.0" />
+               </GridPane.margin>
+            </HBox>
+            <HBox alignment="CENTER" GridPane.rowIndex="1">
+               <children>
+                  <VBox prefHeight="200.0" prefWidth="100.0" spacing="30.0">
+                     <children>
+                        <Label text="Znamka:">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font></Label>
+                        <Label text="Oznaka:">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font></Label>
+                        <Label text="Moč (kW):">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font></Label>
+                        <Label text="Prostornina (ccm):">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font></Label>
+                     </children>
+                     <HBox.margin>
+                        <Insets right="20.0" />
+                     </HBox.margin>
+                  </VBox>
+                  <VBox alignment="TOP_RIGHT" spacing="21.0">
+                     <children>
+                        <TextField fx:id="znamka" />
+                        <TextField fx:id="oznaka" />
+                        <TextField fx:id="moc" />
+                        <TextField fx:id="prostornina" />
+                     </children>
+                  </VBox>
+               </children>
+               <GridPane.margin>
+                  <Insets top="10.0" />
+               </GridPane.margin>
+               <padding>
+                  <Insets left="20.0" right="20.0" />
+               </padding></HBox>
+            <HBox alignment="CENTER" layoutX="10.0" layoutY="87.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <children>
+                  <VBox prefHeight="200.0" prefWidth="100.0" spacing="30.0">
+                     <children>
+                        <Label text="Vrsta vozila:">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font></Label>
+                        <Label text="Barva:">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font></Label>
+                        <Label text="Št. sedežev:">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font></Label>
+                        <Label text="Gorivo:">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font></Label>
+                     </children>
+                     <HBox.margin>
+                        <Insets right="20.0" />
+                     </HBox.margin>
+                  </VBox>
+                  <VBox alignment="TOP_RIGHT" spacing="21.0">
+                     <children>
+                        <ChoiceBox fx:id="vrstavozila" prefWidth="150.0" />
+                        <ColorPicker fx:id="barva" />
+                        <Spinner fx:id="stsedezev" />
+                        <ChoiceBox fx:id="gorivo" prefWidth="150.0" />
+                     </children>
+                  </VBox>
+               </children>
+               <padding>
+                  <Insets left="20.0" right="20.0" />
+               </padding>
+               <GridPane.margin>
+                  <Insets top="10.0" />
+               </GridPane.margin>
+            </HBox>
+            <HBox alignment="CENTER" layoutX="10.0" layoutY="87.0" GridPane.columnIndex="3" GridPane.rowIndex="1">
+               <children>
+                  <VBox prefHeight="200.0" prefWidth="100.0" spacing="30.0">
+                     <children>
+                        <Label text="Ime:">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font></Label>
+                        <Label text="Priimek:">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font></Label>
+                        <Label text="Datum rojstva:">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font></Label>
+                        <Label text="Izkušnje voznika:">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font></Label>
+                     </children>
+                     <HBox.margin>
+                        <Insets right="20.0" />
+                     </HBox.margin>
+                  </VBox>
+                  <VBox spacing="21.0">
+                     <children>
+                        <TextField fx:id="ime" />
+                        <TextField fx:id="priimek" />
+                        <DatePicker fx:id="rojstvo" />
+                        <RadioButton mnemonicParsing="false" text="Izkušen voznik" textFill="#1225ec">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="izkusnje" />
+                           </toggleGroup>
+                           <VBox.margin>
+                              <Insets top="5.0" />
+                           </VBox.margin>
+                        </RadioButton>
+                        <RadioButton mnemonicParsing="false" text="Mladi voznik" textFill="#1225ec" toggleGroup="$izkusnje" />
+                     </children>
+                  </VBox>
+               </children>
+               <padding>
+                  <Insets left="20.0" right="20.0" />
+               </padding>
+               <GridPane.margin>
+                  <Insets top="10.0" />
+               </GridPane.margin>
+            </HBox>
+            <HBox alignment="CENTER" layoutX="10.0" layoutY="20.0" GridPane.columnIndex="3" GridPane.columnSpan="2">
+               <children>
+                  <Label text="Podatki o zavarovancu">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Label>
+               </children>
+               <GridPane.margin>
+                  <Insets bottom="10.0" top="10.0" />
+               </GridPane.margin>
+            </HBox>
+            <Separator orientation="VERTICAL" prefHeight="200.0" GridPane.columnIndex="2" GridPane.rowSpan="2147483647" />
+            <HBox alignment="CENTER" layoutX="636.0" layoutY="67.0" GridPane.columnIndex="4" GridPane.rowIndex="1">
+               <children>
+                  <VBox prefHeight="200.0" prefWidth="100.0" spacing="30.0">
+                     <children>
+                        <Label text="Ulica:">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font></Label>
+                        <Label text="Hišna št.:">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font></Label>
+                        <Label text="Poštna št.:">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font></Label>
+                        <Label text="Kraj:">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font></Label>
+                     </children>
+                     <HBox.margin>
+                        <Insets right="20.0" />
+                     </HBox.margin>
+                  </VBox>
+                  <VBox alignment="TOP_RIGHT" spacing="21.0">
+                     <children>
+                        <TextField fx:id="ulica" />
+                        <TextField fx:id="hisnast" />
+                        <TextField fx:id="postnast" />
+                        <TextField fx:id="kraj" />
+                     </children>
+                  </VBox>
+               </children>
+               <padding>
+                  <Insets left="20.0" right="20.0" />
+               </padding>
+               <GridPane.margin>
+                  <Insets top="10.0" />
+               </GridPane.margin>
+            </HBox>
+            <HBox alignment="TOP_CENTER" spacing="20.0" GridPane.columnIndex="3" GridPane.columnSpan="2" GridPane.rowIndex="3">
+               <GridPane.margin>
+                  <Insets bottom="10.0" top="10.0" />
+               </GridPane.margin>
+            </HBox>
+            <Separator prefWidth="200.0" GridPane.columnSpan="2147483647" GridPane.rowIndex="4" />
+            <HBox alignment="CENTER" layoutX="10.0" layoutY="20.0" GridPane.columnSpan="2" GridPane.rowIndex="5">
+               <children>
+                  <Label text="Podatki o zavarovanju">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Label>
+               </children>
+               <GridPane.margin>
+                  <Insets bottom="10.0" top="10.0" />
+               </GridPane.margin>
+            </HBox>
+            <HBox alignment="CENTER" layoutX="10.0" layoutY="308.0" GridPane.columnIndex="3" GridPane.columnSpan="2" GridPane.rowIndex="5">
+               <children>
+                  <Label text="Podatki o registraciji">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Label>
+               </children>
+               <GridPane.margin>
+                  <Insets bottom="10.0" top="10.0" />
+               </GridPane.margin>
+            </HBox>
+            <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.columnSpan="2147483647" GridPane.rowIndex="6">
+               <children>
+                  <VBox spacing="30.0">
+                     <children>
+                        <Label text="Datum prve registracije:">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font></Label>
+                        <Label text="Kraj prve registracije:">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font></Label>
+                        <Label text="Registrska označba:">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font></Label>
+                        <Button mnemonicParsing="false" onAction="#CBpobrisiVse" text="Izbriši vse" />
+                     </children>
+                     <HBox.margin>
+                        <Insets right="20.0" />
+                     </HBox.margin></VBox>
+                  <VBox fx:id="registrtska" spacing="21.0">
+                     <children>
+                        <DatePicker fx:id="prvaregistracija" />
+                        <TextField fx:id="krajprveregistracije" />
+                        <TextField fx:id="registrska" />
+                        <Button mnemonicParsing="false" onAction="#CBshrani" text="Shrani">
+                           <VBox.margin>
+                              <Insets top="3.0" />
+                           </VBox.margin></Button>
+                     </children></VBox>
+               </children>
+               <padding>
+                  <Insets left="20.0" right="20.0" />
+               </padding>
+               <GridPane.margin>
+                  <Insets top="10.0" />
+               </GridPane.margin>
+            </HBox>
+         </children>
+      </GridPane>
+   </center>
+</BorderPane>
